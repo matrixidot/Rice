@@ -2,7 +2,7 @@
 
 using CodeAnalysis;
 
-sealed class ParenthesizedExpressionSyntax : ExpressionSyntax {
+public sealed class ParenthesizedExpressionSyntax : ExpressionSyntax {
     public override SyntaxKind Kind => SyntaxKind.ParentheticalExpression;
     public SyntaxToken OpenParenthesis { get; }
     public ExpressionSyntax Expression { get; }

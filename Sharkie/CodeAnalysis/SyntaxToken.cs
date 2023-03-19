@@ -2,7 +2,7 @@
 
 using SyntaxNodes;
 
-public class SyntaxToken : SyntaxNode {
+public sealed class SyntaxToken : SyntaxNode {
     public override SyntaxKind Kind { get; }
     public override IEnumerable<SyntaxNode> GetChildren() => Enumerable.Empty<SyntaxNode>();
     public int Position { get; }

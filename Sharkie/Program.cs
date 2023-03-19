@@ -3,11 +3,11 @@
 using CodeAnalysis;
 using SyntaxNodes;
 
-class Program
+internal static class Program
 {
-    static void Main(String[] args)
+    private static void Main()
     {
-        bool showTree = false;
+        var showTree = false;
         while (true)
         {
             Console.Write("Sharkie > ");
@@ -30,10 +30,9 @@ class Program
 
             if (showTree)
             {
-                var color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 PrettyPrint(syntaxTree.Root);
-                Console.ForegroundColor = color;
+                Console.ResetColor();
             }
             if (!syntaxTree.Diagnostics.Any())
             {
@@ -43,13 +42,12 @@ class Program
             }
             else
             {
-                var color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkRed;
 
                 foreach (var diagnostic in syntaxTree.Diagnostics)
                     Console.WriteLine(diagnostic);
 
-                Console.ForegroundColor = color;
+                Console.ResetColor();
             }
         }
     }
@@ -67,7 +65,7 @@ class Program
         
         Console.WriteLine();
 
-        indent += isLast ? "    " : "│   ";
+        indent += isLast ? "   " : "│  ";
 
         var lastChild = node.GetChildren().LastOrDefault();
             

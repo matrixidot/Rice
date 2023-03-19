@@ -2,7 +2,7 @@
 
 using SyntaxNodes;
 
-public class Evaluator {
+public sealed class Evaluator {
     public ExpressionSyntax _root { get; }
 
     public Evaluator(ExpressionSyntax root) {
@@ -14,8 +14,8 @@ public class Evaluator {
     }
 
     private int EvaluateExpression(ExpressionSyntax node) {
-        if (node is NumberExpressionSyntax n)
-            return (int)n.NumberToken.Value;
+        if (node is LiteralExpressionSyntax n)
+            return (int)n.LiteralToken.Value;
         
         if (node is BinaryExpressionSyntax b) {
             var left = EvaluateExpression(b.Left);

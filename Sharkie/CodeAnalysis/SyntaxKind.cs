@@ -2,16 +2,19 @@
 
 public enum SyntaxKind
 {
-    NUMBER,
+    // TOKENS
+    BAD,
+    END,
     SPACE,
+    NUMBER,
+    // OPERATORS
     PLUS,
     MINUS,
     STAR,
     SLASH,
     OpenParen,
     CloseParen,
-    BAD,
-    END,
+    // EXPRESSIONS
     BinaryExpression,
     NumericalExpression,
     ParentheticalExpression,

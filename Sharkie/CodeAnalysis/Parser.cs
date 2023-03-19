@@ -2,7 +2,7 @@
 
 using SyntaxNodes;
 
-public class Parser {
+internal sealed class Parser {
     private readonly SyntaxToken[] _tokens;
     private int _position;
     private readonly List<string> _diagnostics = new();
@@ -26,7 +26,7 @@ public class Parser {
     
     public SyntaxTree Parse() {
         var expression = ParseTerm();
-        var endOfFileToken = Match(SyntaxKind.END);
+        var endOfFileToken = MatchToken(SyntaxKind.END);
         return new SyntaxTree(_diagnostics, expression, endOfFileToken);
     }
 
@@ -58,12 +58,12 @@ public class Parser {
         if (Current.Kind == SyntaxKind.OpenParen) {
             var left = NextToken();
             var expression = ParseExpression();
-            var right = Match(SyntaxKind.CloseParen);
+            var right = MatchToken(SyntaxKind.CloseParen);
             return new ParenthesizedExpressionSyntax(left, expression, right);
         }
 
-        var numberToken = Match(SyntaxKind.NUMBER);
-        return new NumberExpressionSyntax(numberToken);
+        var numberToken = MatchToken(SyntaxKind.NUMBER);
+        return new LiteralExpressionSyntax(numberToken);
     }
 
     private SyntaxToken Peek(int offset) {
@@ -80,7 +80,7 @@ public class Parser {
         return current;
     }
 
-    private SyntaxToken Match(SyntaxKind kind) {
+    private SyntaxToken MatchToken(SyntaxKind kind) {
         if (Current.Kind == kind) 
             return NextToken();
         _diagnostics.Add($"ERROR: Unexpected token <{Current.Kind}>, expected <{kind}>");
