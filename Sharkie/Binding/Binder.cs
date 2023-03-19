@@ -1,12 +1,10 @@
 ﻿namespace Sharkie.Binding;
 
-using System.Runtime.CompilerServices;
-
 using Syntax;
 using Syntax.Expressions;
 
 internal sealed class Binder {
-    private readonly List<string> _diagnostics = new();
+    private readonly List<string> _diagnostics = new List<string>();
 
     public IEnumerable<string> Diagnostics => _diagnostics;
     
@@ -24,13 +22,13 @@ internal sealed class Binder {
     }
 
     private BoundExpression BindLiteralExpression(LiteralExpressionSyntax syntax) {
-        var value = syntax.LiteralToken.Value as int? ?? 0;
+        var value = syntax.Value ?? 0;
         return new BoundLiteralExpression(value);
     }
     private BoundExpression BindUnaryExpression(UnaryExpressionSyntax syntax) {
         var boundOperand = BindExpression(syntax.Operand);
         var boundOperatorKind = BindUnaryOperatorKind(syntax.OperatorToken.Kind, boundOperand.Type);
-        if (boundOperatorKind is null) {
+        if (boundOperatorKind == null) {
             _diagnostics.Add($"Unary operator '{syntax.OperatorToken.Text}' is not defined for type {boundOperand.Type}.");
             return boundOperand;
         }
@@ -51,8 +49,8 @@ internal sealed class Binder {
 
     private BoundUnaryOperatorKind? BindUnaryOperatorKind(SyntaxKind kind, Type operandType) {
         if (operandType != typeof(int)) return null;
-        
-        switch (kind) {
+        switch (kind)
+        {
             case SyntaxKind.PlusToken:
                 return BoundUnaryOperatorKind.Identity;
             case SyntaxKind.MinusToken:

@@ -56,15 +56,25 @@ internal sealed class Parser {
     }
     
     private ExpressionSyntax ParsePrimaryExpression() {
-        if (Current.Kind == SyntaxKind.OpenParen) {
-            var left = NextToken();
-            var expression = ParseExpression();
-            var right = MatchToken(SyntaxKind.CloseParen);
-            return new ParenthesizedExpressionSyntax(left, expression, right);
-        }
+        switch (Current.Kind) {
+            case SyntaxKind.OpenParen: {
+                var left = NextToken();
+                var expression = ParseExpression();
+                var right = MatchToken(SyntaxKind.CloseParen);
+                return new ParenthesizedExpressionSyntax(left, expression, right);
+            }
+            case SyntaxKind.FalseKeyword:
+            case SyntaxKind.TrueKeyword: {
+                var keywordToken = NextToken();
+                var value = Current.Kind == SyntaxKind.TrueKeyword;
+                return new LiteralExpressionSyntax(keywordToken, value);
+            }
 
-        var numberToken = MatchToken(SyntaxKind.NumberToken);
-        return new LiteralExpressionSyntax(numberToken);
+            default: {
+                var numberToken = MatchToken(SyntaxKind.NumberToken);
+                return new LiteralExpressionSyntax(numberToken);
+            }
+        }
     }
 
     private SyntaxToken Peek(int offset) {

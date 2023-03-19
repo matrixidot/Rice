@@ -2,22 +2,29 @@
 
 public enum SyntaxKind
 {
-    // TOKENS
+    // SPECIAL TOKENS
     BadToken,
     EndOfFileToken,
     SpaceToken,
     NumberToken,
-    // OPERATORS
+    IdentifierToken,
+    
+    // OPERATOR TOKENS
     PlusToken,
     MinusToken,
     StarToken,
     SlashToken,
     OpenParen,
     CloseParen,
+    
     // EXPRESSIONS
     BinaryExpression,
     UnaryExpression,
     LiteralExpression,
     ParentheticalExpression,
+    
+    // KEYWORDS
+    FalseKeyword,
+    TrueKeyword,
 
 }
