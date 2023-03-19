@@ -3,7 +3,7 @@
 using CodeAnalysis;
 
 public sealed class LiteralExpressionSyntax : ExpressionSyntax {
-    public override SyntaxKind Kind => SyntaxKind.NumericalExpression;
+    public override SyntaxKind Kind => SyntaxKind.LiteralExpression;
     public SyntaxToken LiteralToken { get; }
     
     public LiteralExpressionSyntax(SyntaxToken literalToken) {

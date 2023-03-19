@@ -3,19 +3,21 @@
 public enum SyntaxKind
 {
     // TOKENS
-    BAD,
-    END,
-    SPACE,
-    NUMBER,
+    BadToken,
+    EndOfFileToken,
+    SpaceToken,
+    NumberToken,
     // OPERATORS
-    PLUS,
-    MINUS,
-    STAR,
-    SLASH,
+    PlusToken,
+    MinusToken,
+    StarToken,
+    SlashToken,
     OpenParen,
     CloseParen,
     // EXPRESSIONS
     BinaryExpression,
-    NumericalExpression,
+    UnaryExpression,
+    LiteralExpression,
     ParentheticalExpression,
+
 }

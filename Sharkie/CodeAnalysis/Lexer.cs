@@ -11,9 +11,9 @@ internal sealed class Lexer {
         _text = text;
     }
     
-    public SyntaxToken NextToken() {
+    public SyntaxToken Lex() {
         if (_position >= _text.Length)
-            return new SyntaxToken(SyntaxKind.END, _position, "\0", null);
+            return new SyntaxToken(SyntaxKind.EndOfFileToken, _position, "\0", null);
         
         /* ===== NUMBERS ===== */
         if (char.IsDigit(Current)) {
@@ -26,7 +26,7 @@ internal sealed class Lexer {
             if (!int.TryParse(text, out var value))
                 _diagnostics.Add($"The number {_text} is not a valid int32");
 
-            return new SyntaxToken(SyntaxKind.NUMBER, start, text, value);
+            return new SyntaxToken(SyntaxKind.NumberToken, start, text, value);
         }
         
         /* ===== WHITESPACE ===== */
@@ -37,21 +37,21 @@ internal sealed class Lexer {
                 Next();
             var length = _position - start;
             var text = _text.Substring(start, length);
-            return new SyntaxToken(SyntaxKind.SPACE, start, text, null);
+            return new SyntaxToken(SyntaxKind.SpaceToken, start, text, null);
         }
         
         /* ===== OPERATORS ===== */
         switch (Current) {
-            case '+': return new SyntaxToken(SyntaxKind.PLUS, _position++, "+", null);
-            case '-': return new SyntaxToken(SyntaxKind.MINUS, _position++, "-", null);
-            case '*': return new SyntaxToken(SyntaxKind.STAR, _position++, "*", null);
-            case '/': return new SyntaxToken(SyntaxKind.SLASH, _position++, "/", null);
+            case '+': return new SyntaxToken(SyntaxKind.PlusToken, _position++, "+", null);
+            case '-': return new SyntaxToken(SyntaxKind.MinusToken, _position++, "-", null);
+            case '*': return new SyntaxToken(SyntaxKind.StarToken, _position++, "*", null);
+            case '/': return new SyntaxToken(SyntaxKind.SlashToken, _position++, "/", null);
             case '(': return new SyntaxToken(SyntaxKind.OpenParen, _position++, "(", null);
             case ')': return new SyntaxToken(SyntaxKind.CloseParen, _position++, ")", null);
         }
 
         _diagnostics.Add($"ERROR: bad character input: '{Current}'");
-        return new SyntaxToken(SyntaxKind.BAD, _position++, _text.Substring(_position - 1, 1), null);
+        return new SyntaxToken(SyntaxKind.BadToken, _position++, _text.Substring(_position - 1, 1), null);
     }
     private void Next() {
         _position++;
