@@ -31,4 +31,6 @@ public enum SyntaxKind
     BangToken,
     DualAmpersandToken,
     DualPipeToken,
+    DualEqualsToken,
+    BangEqualsToken,
 }

@@ -43,6 +43,8 @@ internal sealed class Evaluator {
                 case BoundBinaryOperatorKind.Division: return (int) left / (int) right;
                 case BoundBinaryOperatorKind.LogicalAND: return (bool) left && (bool) right;
                 case BoundBinaryOperatorKind.LogicalOR: return (bool) left || (bool) right;
+                case BoundBinaryOperatorKind.Equals: return Equals(left, right);
+                case BoundBinaryOperatorKind.NotEquals: return !Equals(left, right);
                 default: throw new Exception($"Unexpected binary operator {b.Op}");
             }
         }
