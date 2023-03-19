@@ -1,6 +1,7 @@
 ﻿namespace Sharkie.CodeAnalysis;
 
-using SyntaxNodes;
+using Syntax;
+using Syntax.Expressions;
 
 public sealed class Evaluator {
     public ExpressionSyntax _root { get; }

@@ -1,6 +1,8 @@
-﻿namespace Sharkie.SyntaxNodes;
+﻿namespace Sharkie.Syntax;
 
 using CodeAnalysis;
+
+using Expressions;
 
 public sealed class SyntaxTree
 {

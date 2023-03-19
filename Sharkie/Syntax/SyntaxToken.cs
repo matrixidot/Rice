@@ -1,6 +1,4 @@
-﻿namespace Sharkie.CodeAnalysis;
-
-using SyntaxNodes;
+﻿namespace Sharkie.Syntax;
 
 public sealed class SyntaxToken : SyntaxNode {
     public override SyntaxKind Kind { get; }

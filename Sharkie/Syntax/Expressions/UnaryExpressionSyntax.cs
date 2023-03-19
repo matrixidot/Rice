@@ -1,6 +1,4 @@
-﻿namespace Sharkie.SyntaxNodes;
-
-using CodeAnalysis;
+﻿namespace Sharkie.Syntax.Expressions;
 
 public sealed class UnaryExpressionSyntax : ExpressionSyntax {
     public override SyntaxKind Kind => SyntaxKind.UnaryExpression;

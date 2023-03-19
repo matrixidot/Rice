@@ -1,6 +1,4 @@
-﻿namespace Sharkie.SyntaxNodes;
-
-using CodeAnalysis;
+﻿namespace Sharkie.Syntax;
 
 public abstract class SyntaxNode
 {

@@ -1,7 +1,8 @@
 ﻿namespace Sharkie;
 
 using CodeAnalysis;
-using SyntaxNodes;
+
+using Syntax;
 
 internal static class Program
 {

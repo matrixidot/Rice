@@ -1,6 +1,8 @@
 ﻿namespace Sharkie.CodeAnalysis;
 
-using SyntaxNodes;
+using Syntax;
+using Syntax.Expressions;
+
 internal sealed class Parser {
     private readonly SyntaxToken[] _tokens;
     private int _position;

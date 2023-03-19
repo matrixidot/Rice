@@ -1,4 +1,4 @@
-﻿namespace Sharkie.CodeAnalysis;
+﻿namespace Sharkie.Syntax;
 
 public enum SyntaxKind
 {

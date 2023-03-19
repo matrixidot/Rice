@@ -1,4 +1,4 @@
-﻿namespace Sharkie.CodeAnalysis; 
+﻿namespace Sharkie.Syntax; 
 
 internal static class SyntaxFacts {
     

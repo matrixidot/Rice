@@ -1,5 +1,7 @@
 ﻿namespace Sharkie.CodeAnalysis;
 
+using Syntax;
+
 internal sealed class Lexer {
     private readonly string _text;
     private int _position;
