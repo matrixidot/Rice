@@ -27,4 +27,8 @@ public enum SyntaxKind
     FalseKeyword,
     TrueKeyword,
 
+    // BOOLEAN OPERATORS
+    BangToken,
+    DualAmpersandToken,
+    DualPipeToken,
 }
