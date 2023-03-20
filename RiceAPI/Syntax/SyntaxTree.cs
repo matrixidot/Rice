@@ -1,0 +1,26 @@
+﻿namespace BZAPI.Syntax;
+
+using System.Collections.Generic;
+using System.Linq;
+
+using CodeAnalysis;
+
+using Expressions;
+
+public sealed class SyntaxTree
+{
+    public IReadOnlyList<string> Diagnostics;
+    public ExpressionSyntax Root { get; }
+    public SyntaxToken EndOfFileToken { get; }
+
+    public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
+        Diagnostics = diagnostics.ToArray();
+        Root = root;
+        EndOfFileToken = endOfFileToken;
+    }
+
+    public static SyntaxTree Parse(string text) {
+        var parser = new Parser(text);
+        return parser.Parse();
+    }
+}

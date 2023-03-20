@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Rice/1.0.0": {
+        "dependencies": {
+          "RiceAPI": "1.0.0"
+        },
+        "runtime": {
+          "Rice.dll": {}
+        }
+      },
+      "RiceAPI/1.0.0": {
+        "runtime": {
+          "RiceAPI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Rice/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RiceAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
