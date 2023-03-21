@@ -7,13 +7,15 @@ using CodeAnalysis;
 
 using Expressions;
 
+using MiscAPI;
+
 public sealed class SyntaxTree
 {
-    public IReadOnlyList<string> Diagnostics;
+    public IReadOnlyList<Diagnostic> Diagnostics;
     public ExpressionSyntax Root { get; }
     public SyntaxToken EndOfFileToken { get; }
 
-    public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
+    public SyntaxTree(IEnumerable<Diagnostic> diagnostics, ExpressionSyntax root, SyntaxToken endOfFileToken) {
         Diagnostics = diagnostics.ToArray();
         Root = root;
         EndOfFileToken = endOfFileToken;

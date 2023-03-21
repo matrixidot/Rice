@@ -1,19 +1,24 @@
 ﻿namespace BZAPI.CodeAnalysis;
 
-using System.Collections.Generic;
+using MiscAPI;
 
 using Syntax;
 
 internal sealed class Lexer {
     private readonly string _text;
     private int _position;
-    private readonly List<string> _diagnostics = new();
-    public IEnumerable<string> Diagnostics => _diagnostics;
+    private DiagnosticBag _diagnostics = new();
+    
+    public DiagnosticBag Diagnostics => _diagnostics;
 
     private char Current => Peek(0);
 
     private char LookAhead => Peek(1);
 
+    public Lexer(string text) {
+        _text = text;
+    }
+    
     private char Peek(int offset) {
         var index = _position + offset;
         if (index >= _text.Length)
@@ -21,9 +26,7 @@ internal sealed class Lexer {
         return _text[index];
     }
 
-    public Lexer(string text) {
-        _text = text;
-    }
+
     
     public SyntaxToken Lex() {
         if (_position >= _text.Length)
@@ -38,7 +41,7 @@ internal sealed class Lexer {
             var length = _position - start;
             var text = _text.Substring(start, length);
             if (!int.TryParse(text, out var value))
-                _diagnostics.Add($"The number {_text} is not a valid int32");
+                _diagnostics.ReportInvalidNumber(new TextSpan(start, length), _text, typeof(int));
 
             return new SyntaxToken(SyntaxKind.NumberToken, start, text, value);
         }
@@ -85,7 +88,7 @@ internal sealed class Lexer {
                 else return new SyntaxToken(SyntaxKind.BangToken, _position++, "!", null);
         }
 
-        _diagnostics.Add($"ERROR: bad character input: '{Current}'");
+        _diagnostics.ReportBadCharacter(_position, Current);
         return new SyntaxToken(SyntaxKind.BadToken, _position++, _text.Substring(_position - 1, 1), null);
     }
     private void Next() {

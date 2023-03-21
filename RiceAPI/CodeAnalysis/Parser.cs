@@ -2,13 +2,16 @@
 
 using System.Collections.Generic;
 
+using MiscAPI;
+
 using Syntax;
 using Syntax.Expressions;
 
 internal sealed class Parser {
     private readonly SyntaxToken[] _tokens;
     private int _position;
-    private readonly List<string> _diagnostics = new();
+    private readonly DiagnosticBag _diagnostics = new();
+    public DiagnosticBag Diagnostics => _diagnostics;
 
     public Parser(string text) {
         var tokens = new List<SyntaxToken>();
@@ -96,7 +99,7 @@ internal sealed class Parser {
     private SyntaxToken MatchToken(SyntaxKind kind) {
         if (Current.Kind == kind) 
             return NextToken();
-        _diagnostics.Add($"ERROR: Unexpected token <{Current.Kind}>, expected <{kind}>");
+        _diagnostics.ReportUnexpectedToken(Current.Span, kind, Current.Kind);
         return new SyntaxToken(kind, Current.Position, null, null);
     }
     

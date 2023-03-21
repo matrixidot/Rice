@@ -1,10 +1,12 @@
-namespace BZAPI.CodeAnalysis; 
+namespace BZAPI.CodeAnalysis;
+
+using Syntax;
 
 public sealed class EvaluationResult {
-    public IReadOnlyList<string> Diagnostics { get; }
+    public IReadOnlyList<Diagnostic> Diagnostics { get; }
     public object Value { get; }
 
-    public EvaluationResult(IEnumerable<string> diagnostics, object value) {
+    public EvaluationResult(IEnumerable<Diagnostic> diagnostics, object value) {
         Diagnostics = diagnostics.ToArray();
         Value = value;
     }
