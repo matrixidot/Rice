@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Binding.OperatorKinds;
+﻿namespace RiceAPI.Binding.OperatorKinds;
 
 internal enum BoundUnaryOperatorKind {
     Identity,

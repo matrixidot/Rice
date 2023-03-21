@@ -1,4 +1,4 @@
-﻿namespace BZAPI.CodeAnalysis;
+﻿namespace RiceAPI.CodeAnalysis;
 
 using System;
 

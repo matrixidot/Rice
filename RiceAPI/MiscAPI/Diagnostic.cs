@@ -1,4 +1,4 @@
-namespace BZAPI.Syntax; 
+namespace RiceAPI.Syntax; 
 
 public sealed class Diagnostic {
     public TextSpan Span { get; }

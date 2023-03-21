@@ -1,4 +1,4 @@
-namespace BZAPI.MiscAPI;
+namespace RiceAPI.MiscAPI;
 
 using System.Collections;
 

@@ -1,4 +1,4 @@
-namespace BZAPI.Syntax; 
+namespace RiceAPI.Syntax; 
 
 public struct TextSpan {
     public int Start { get; }

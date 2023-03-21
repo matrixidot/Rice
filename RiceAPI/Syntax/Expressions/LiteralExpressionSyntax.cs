@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Syntax.Expressions;
+﻿namespace RiceAPI.Syntax.Expressions;
 
 using System.Collections.Generic;
 

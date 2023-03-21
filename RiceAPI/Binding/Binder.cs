@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Binding;
+﻿namespace RiceAPI.Binding;
 
 using System;
 using System.Collections.Generic;

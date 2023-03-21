@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Syntax; 
+﻿namespace RiceAPI.Syntax; 
 
 internal static class SyntaxFacts {
     

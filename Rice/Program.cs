@@ -1,10 +1,9 @@
-﻿namespace Sharkie;
+﻿namespace Rice;
 
 using System;
-using System.Runtime.CompilerServices;
 
-using BZAPI.CodeAnalysis;
-using BZAPI.Syntax;
+using RiceAPI.CodeAnalysis;
+using RiceAPI.Syntax;
 
 internal static class Program
 {

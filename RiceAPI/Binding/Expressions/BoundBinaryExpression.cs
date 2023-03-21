@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Binding.Expressions;
+﻿namespace RiceAPI.Binding.Expressions;
 
 using System;
 

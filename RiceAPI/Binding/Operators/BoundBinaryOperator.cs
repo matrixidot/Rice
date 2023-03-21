@@ -1,4 +1,4 @@
-﻿namespace BZAPI.Binding.Operators;
+﻿namespace RiceAPI.Binding.Operators;
 
 using System;
 

@@ -1,3 +1,3 @@
-﻿namespace BZAPI.Syntax.Expressions;
+﻿namespace RiceAPI.Syntax.Expressions;
 
 public abstract class ExpressionSyntax : SyntaxNode { }
