@@ -92,6 +92,10 @@ internal sealed class Lexer {
                     _position += 2;
                     return new SyntaxToken(SyntaxKind.DualEqualsToken, start, "==", null);
                 }
+                else {
+                    _position++;
+                    return new SyntaxToken(SyntaxKind.EqualsToken, start, "=", null);
+                }
                 break;            
             case '!':
                 if (LookAhead == '=') {

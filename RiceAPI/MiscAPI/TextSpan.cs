@@ -9,4 +9,6 @@ public struct TextSpan {
         Start = start;
         Length = length;
     }
+
+
 }

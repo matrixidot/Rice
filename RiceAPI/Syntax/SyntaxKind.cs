@@ -16,12 +16,15 @@ public enum SyntaxKind
     SlashToken,
     OpenParen,
     CloseParen,
+    EqualsToken,
     
     // EXPRESSIONS
     BinaryExpression,
     UnaryExpression,
     LiteralExpression,
     ParentheticalExpression,
+    NameExpression,
+    AssignmentExpression,
     
     // KEYWORDS
     FalseKeyword,
@@ -33,4 +36,7 @@ public enum SyntaxKind
     DualPipeToken,
     DualEqualsToken,
     BangEqualsToken,
+
+
+
 }
