@@ -31,10 +31,10 @@ internal sealed class Lexer {
     public SyntaxToken Lex() {
         if (_position >= _text.Length)
             return new SyntaxToken(SyntaxKind.EndOfFileToken, _position, "\0", null);
-        
+        var start = _position;
         /* ===== NUMBERS ===== */
         if (char.IsDigit(Current)) {
-            var start = _position;
+            
 
             while (char.IsDigit(Current)) Next();
 
@@ -48,7 +48,6 @@ internal sealed class Lexer {
         
         /* ===== WHITESPACE ===== */
         if (char.IsWhiteSpace(Current)) {
-            var start = _position;
 
             while (char.IsWhiteSpace(Current))
                 Next();
@@ -58,7 +57,6 @@ internal sealed class Lexer {
         }
 
         if (char.IsLetter(Current)) {
-            var start = _position;
 
             while (char.IsLetter(Current))
                 Next();
@@ -77,15 +75,33 @@ internal sealed class Lexer {
             case '/': return new SyntaxToken(SyntaxKind.SlashToken, _position++, "/", null);
             case '(': return new SyntaxToken(SyntaxKind.OpenParen, _position++, "(", null);
             case ')': return new SyntaxToken(SyntaxKind.CloseParen, _position++, ")", null);
-            case '&': if (LookAhead == '&') return new SyntaxToken(SyntaxKind.DualAmpersandToken, _position += 2, "&&", null);
+            case '&':
+                if (LookAhead == '&') {
+                    _position += 2;
+                    return new SyntaxToken(SyntaxKind.DualAmpersandToken, start, "&&", null);
+                }
                 break;
-            case '|': if (LookAhead == '|') return new SyntaxToken(SyntaxKind.DualPipeToken, _position += 2, "||", null);
+            case '|':
+                if (LookAhead == '|') {
+                    _position += 2;
+                    return new SyntaxToken(SyntaxKind.DualPipeToken, start, "||", null);
+                }
                 break;            
-            case '=': if (LookAhead == '=') return new SyntaxToken(SyntaxKind.DualEqualsToken, _position += 2, "==", null);
+            case '=':
+                if (LookAhead == '=') {
+                    _position += 2;
+                    return new SyntaxToken(SyntaxKind.DualEqualsToken, start, "==", null);
+                }
                 break;            
-            case '!': 
-                if (LookAhead == '=') return new SyntaxToken(SyntaxKind.BangEqualsToken, _position += 2, "!=", null);
-                else return new SyntaxToken(SyntaxKind.BangToken, _position++, "!", null);
+            case '!':
+                if (LookAhead == '=') {
+                    _position += 2;
+                    return new SyntaxToken(SyntaxKind.BangEqualsToken, start, "!=", null);
+                }
+                else {
+                    _position++;
+                    return new SyntaxToken(SyntaxKind.BangToken, start, "!", null);
+                }
         }
 
         _diagnostics.ReportBadCharacter(_position, Current);
