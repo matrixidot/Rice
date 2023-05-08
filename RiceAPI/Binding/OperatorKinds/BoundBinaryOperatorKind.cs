@@ -9,4 +9,6 @@ internal enum BoundBinaryOperatorKind {
     LogicalOR,
     Equals,
     NotEquals,
+    Exponent,
+    Modulus,
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rlHRFCzvbPs87dTZuWKRYQXuPiUT9sYJkJFNnDlRDWvBtHto2ED7SmXuG9uYWiIf7AjRAWlZEgv9DDlAT+9hFQ==",
+  "dgSpecHash": "sMIrWXaZQbzPYTQLr2T97aj9etQQKH0QoSkCfqw9wjR3KS2V8n88UrXJxMo6PMk4x4jVJYBLZvef8ZrQyC3cNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Romir\\Documents\\Projects\\Rice\\Rice\\Rice.csproj",
+  "projectFilePath": "/workspaces/Rice/Rice/Rice.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

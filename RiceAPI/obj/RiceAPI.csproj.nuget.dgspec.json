@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\RiceAPI.csproj": {}
+    "/workspaces/Rice/RiceAPI/RiceAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\RiceAPI.csproj": {
+    "/workspaces/Rice/RiceAPI/RiceAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\RiceAPI.csproj",
+        "projectUniqueName": "/workspaces/Rice/RiceAPI/RiceAPI.csproj",
         "projectName": "RiceAPI",
-        "projectPath": "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\RiceAPI.csproj",
-        "packagesPath": "C:\\Users\\Romir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\obj\\",
+        "projectPath": "/workspaces/Rice/RiceAPI/RiceAPI.csproj",
+        "packagesPath": "/home/vscode/.nuget/packages/",
+        "outputPath": "/workspaces/Rice/RiceAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Romir\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/vscode/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

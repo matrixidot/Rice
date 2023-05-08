@@ -55,6 +55,8 @@ internal sealed class Evaluator {
                 case BoundBinaryOperatorKind.Subtraction: return (int) left - (int) right;
                 case BoundBinaryOperatorKind.Multiplication: return (int) left * (int) right;
                 case BoundBinaryOperatorKind.Division: return (int) left / (int) right;
+                case BoundBinaryOperatorKind.Exponent: return (int) Math.Pow((int) left, (int) right);
+                case BoundBinaryOperatorKind.Modulus: return (int) left % (int) right;
                 case BoundBinaryOperatorKind.LogicalAND: return (bool) left && (bool) right;
                 case BoundBinaryOperatorKind.LogicalOR: return (bool) left || (bool) right;
                 case BoundBinaryOperatorKind.Equals: return Equals(left, right);

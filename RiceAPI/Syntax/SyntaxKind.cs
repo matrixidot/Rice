@@ -17,6 +17,8 @@ public enum SyntaxKind
     OpenParen,
     CloseParen,
     EqualsToken,
+    ExponentToken,
+    ModulusToken,
     
     // EXPRESSIONS
     BinaryExpression,
