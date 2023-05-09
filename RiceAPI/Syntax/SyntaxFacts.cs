@@ -14,8 +14,12 @@ internal static class SyntaxFacts {
     
     public static int GetBinaryOperatorPrecedence(this SyntaxKind kind) {
         switch (kind) {
+            case SyntaxKind.ExponentToken:
+                return 6;
+                
             case SyntaxKind.StarToken:
             case SyntaxKind.SlashToken:
+            case SyntaxKind.ModulusToken:
                 return 5;
             
             case SyntaxKind.PlusToken:

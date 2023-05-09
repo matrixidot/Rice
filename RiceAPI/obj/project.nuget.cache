@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rgKNbwZFyj28kIHaKLkTZMCkefZAGltE2F0HYuNzlCiYNpA2Yubih+aSOsk6ekWacSdfVPa4I80k9ooT4wVuSw==",
+  "dgSpecHash": "lB5eZOOLZTuHvbSCYnVII/ZruO4OBGCFi4dXbwYPFd28tiBO3DUi73NJ0+Ifl+4TiEzarqsD2ZjIMzHP3sVVoQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Romir\\Documents\\Projects\\Rice\\RiceAPI\\RiceAPI.csproj",
+  "projectFilePath": "/workspaces/Rice/RiceAPI/RiceAPI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

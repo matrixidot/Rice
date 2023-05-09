@@ -31,7 +31,9 @@ internal sealed class BoundBinaryOperator {
         new (SyntaxKind.MinusToken, BoundBinaryOperatorKind.Subtraction, typeof(int)),
         new (SyntaxKind.StarToken, BoundBinaryOperatorKind.Multiplication, typeof(int)),
         new (SyntaxKind.SlashToken, BoundBinaryOperatorKind.Division, typeof(int)),
-        
+        new (SyntaxKind.ExponentToken, BoundBinaryOperatorKind.Exponent, typeof(int)),
+        new (SyntaxKind.ModulusToken, BoundBinaryOperatorKind.Modulus, typeof(int)),
+
         new (SyntaxKind.DualEqualsToken, BoundBinaryOperatorKind.Equals, typeof(int), typeof(bool)),
         new (SyntaxKind.BangEqualsToken, BoundBinaryOperatorKind.NotEquals, typeof(int), typeof(bool)), 
         

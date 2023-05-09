@@ -75,6 +75,8 @@ internal sealed class Lexer {
             case '/': return new SyntaxToken(SyntaxKind.SlashToken, _position++, "/", null);
             case '(': return new SyntaxToken(SyntaxKind.OpenParen, _position++, "(", null);
             case ')': return new SyntaxToken(SyntaxKind.CloseParen, _position++, ")", null);
+            case '^': return new SyntaxToken(SyntaxKind.ExponentToken, _position++, "^", null);
+            case '%': return new SyntaxToken(SyntaxKind.ModulusToken, _position++, "%", null);
             case '&':
                 if (LookAhead == '&') {
                     _position += 2;
@@ -95,8 +97,7 @@ internal sealed class Lexer {
                 else {
                     _position++;
                     return new SyntaxToken(SyntaxKind.EqualsToken, start, "=", null);
-                }
-                break;            
+                }          
             case '!':
                 if (LookAhead == '=') {
                     _position += 2;
