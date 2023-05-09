@@ -71,12 +71,19 @@ internal sealed class Lexer {
         switch (Current) {
             case '+': return new SyntaxToken(SyntaxKind.PlusToken, _position++, "+", null);
             case '-': return new SyntaxToken(SyntaxKind.MinusToken, _position++, "-", null);
-            case '*': return new SyntaxToken(SyntaxKind.StarToken, _position++, "*", null);
             case '/': return new SyntaxToken(SyntaxKind.SlashToken, _position++, "/", null);
             case '(': return new SyntaxToken(SyntaxKind.OpenParen, _position++, "(", null);
             case ')': return new SyntaxToken(SyntaxKind.CloseParen, _position++, ")", null);
-            case '^': return new SyntaxToken(SyntaxKind.ExponentToken, _position++, "^", null);
             case '%': return new SyntaxToken(SyntaxKind.ModulusToken, _position++, "%", null);
+            case '*': 
+                if (LookAhead == '*') {
+                _position += 2;
+                return new SyntaxToken(SyntaxKind.ExponentToken, start, "**", null);
+                }
+                else {
+                    _position++;
+                    return new SyntaxToken(SyntaxKind.StarToken, start, "*", null);
+                } 
             case '&':
                 if (LookAhead == '&') {
                     _position += 2;
