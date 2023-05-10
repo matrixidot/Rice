@@ -19,7 +19,7 @@ public enum SyntaxKind
     EqualsToken,
     ExponentToken,
     ModulusToken,
-    
+
     // EXPRESSIONS
     BinaryExpression,
     UnaryExpression,
@@ -27,7 +27,7 @@ public enum SyntaxKind
     ParentheticalExpression,
     NameExpression,
     AssignmentExpression,
-    
+
     // KEYWORDS
     FalseKeyword,
     TrueKeyword,
@@ -38,7 +38,4 @@ public enum SyntaxKind
     DualPipeToken,
     DualEqualsToken,
     BangEqualsToken,
-
-
-
 }

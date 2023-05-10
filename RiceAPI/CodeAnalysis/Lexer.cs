@@ -77,8 +77,8 @@ internal sealed class Lexer {
             case '%': return new SyntaxToken(SyntaxKind.ModulusToken, _position++, "%", null);
             case '*': 
                 if (LookAhead == '*') {
-                _position += 2;
-                return new SyntaxToken(SyntaxKind.ExponentToken, start, "**", null);
+                    _position += 2;
+                    return new SyntaxToken(SyntaxKind.ExponentToken, start, "**", null);
                 }
                 else {
                     _position++;
